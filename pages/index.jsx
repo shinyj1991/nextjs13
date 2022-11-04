@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Home() {
+async function getData() {
+  const res = await fetch('http://localhost:3000/api/hello')
+  return res.json()
+}
+
+export default async function Home() {
+  const data = await getData()
+
   return (
     <div>
       <Head>
@@ -11,7 +18,8 @@ export default function Home() {
       </Head>
 
       <div>
-        Home<br />
+        Home : {data.name}
+        <br />
         <Link href="/about">about</Link>
       </div>
     </div>
