@@ -4,10 +4,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-
   "prettier.tabWidth": 2,
   "prettier.printWidth": 200,
   "prettier.semi": false,
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5"
+  "prettier.trailingComma": "es5",
+  "typescript.tsdk": ".\\node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
