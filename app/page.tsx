@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 type HelloData = {
-  name: string
+  test: string
 }
 
 async function getData(): Promise<HelloData> {
@@ -16,7 +16,7 @@ export default async function Page() {
   return (
     <div>
       <div>
-        Home : {data.name}
+        Home : {data.test}
         <br />
         <Link href="/about">about</Link>
       </div>

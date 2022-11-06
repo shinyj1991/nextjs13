@@ -5,7 +5,7 @@ const handler = nextConnect<NextApiRequest, NextApiResponse>()
 
 handler.get((req, res) => {
   // GET 요청 처리
-  res.status(200).json({ name: 'Meetup Inserted!' })
+  res.status(200).json({ test: 'Meetup Inserted!' })
 })
 
 handler.post((req, res) => {
