@@ -16,10 +16,8 @@ handler.get(async (req, res) => {
   // GET 요청 처리
   try {
     await client.connect()
-    console.log('Success')
   } catch (error) {
-    console.error('Failed to connect to MongoDB server')
-    throw error
+    throw new Error('Failed to connect to MongoDB server')
   }
   const collection = client.db('test-database').collection('test-collection')
   const doc = await collection.findOne()
