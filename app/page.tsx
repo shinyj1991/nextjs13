@@ -11,11 +11,13 @@ async function getData(): Promise<HelloData> {
 }
 
 export default async function Page() {
-  // const data = await getData()
+  const data = await getData()
 
   return (
     <div>
       <div>
+        Test : {data.test}
+        <br />
         <Link href="/about">about</Link>
       </div>
     </div>
