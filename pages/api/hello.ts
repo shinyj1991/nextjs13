@@ -14,15 +14,18 @@ const client = new MongoClient(MONGODB_URI)
 
 handler.get(async (req, res) => {
   // GET 요청 처리
-  // try {
-  //   await client.connect()
-  // } catch (error) {
-  //   throw new Error('Failed to connect to MongoDB server')
-  // }
-  // const collection = client.db('test-database').collection('test-collection')
-  // const doc = await collection.findOne()
+  try {
+    await client.connect()
+  } catch (error) {
+    throw new Error('Failed to connect to MongoDB server')
+  }
+  const collection = client.db('test-database').collection('test-collection')
+  const doc = await collection.findOne()
 
-  res.status(200).json({ test: 'Meetup Inserted!' })
+  res.status(200).json({
+    test: 'Meetup Inserted!',
+    doc: doc,
+  })
 })
 
 handler.post((req, res) => {

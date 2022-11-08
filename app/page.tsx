@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 type HelloData = {
   test: string
+  doc: any
 }
 
 async function getData(): Promise<HelloData> {
