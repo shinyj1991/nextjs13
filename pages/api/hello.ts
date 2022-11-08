@@ -17,7 +17,7 @@ handler.get(async (req, res) => {
   console.log('111')
   try {
     await client.connect()
-    console.log('Success', client)
+    console.log('Success')
   } catch (error) {
     console.error('Failed to connect to MongoDB server')
     throw error
@@ -25,8 +25,8 @@ handler.get(async (req, res) => {
   console.log('222')
   const collection = client.db('test-database').collection('test-collection')
   console.log('333')
-  const doc = collection.find()
-  console.log('444')
+  const doc = await collection.findOne()
+  console.log('444', doc)
 
   res.status(200).json({ test: 'Meetup Inserted!', doc: doc })
 })
