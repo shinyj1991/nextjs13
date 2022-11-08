@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 type HelloData = {
   test: string
+  doc: any
 }
 
 async function getData(): Promise<HelloData> {
@@ -13,7 +14,7 @@ async function getData(): Promise<HelloData> {
 export default async function Page() {
   const data = await getData()
 
-  console.log('data', data)
+  console.log('data', data.doc)
 
   return (
     <div>
