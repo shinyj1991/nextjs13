@@ -24,7 +24,10 @@ handler.get(async (req, res) => {
   const collection = client.db('test-database').collection('test-collection')
   const doc = await collection.findOne()
 
-  res.status(200).json({ test: 'Meetup Inserted!', doc: doc })
+  res.status(200).json({
+    test: 'Meetup Inserted!',
+    // doc: doc,
+  })
 })
 
 handler.post((req, res) => {

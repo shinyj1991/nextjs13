@@ -19,7 +19,7 @@ export default async function Page() {
       <div>
         Test : {data.test}
         <br />
-        Name : {data.doc.name}
+        {/* Name : {data.doc.name} */}
         <br />
         <Link href="/about">about</Link>
       </div>
