@@ -3,11 +3,10 @@ import Link from 'next/link'
 
 type HelloData = {
   test: string
-  doc: any
 }
 
 async function getData(): Promise<HelloData> {
-  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/hello`)
+  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/test`)
   return res.json()
 }
 
