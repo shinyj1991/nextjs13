@@ -17,9 +17,9 @@ export default async function Page() {
   return (
     <div>
       <div>
-        Home : {data.test}
+        Test : {data.test}
         <br />
-        {data.doc.name}
+        Name : {data.doc.name}
         <br />
         <Link href="/about">about</Link>
       </div>

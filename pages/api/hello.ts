@@ -14,7 +14,6 @@ const client = new MongoClient(MONGODB_URI)
 
 handler.get(async (req, res) => {
   // GET 요청 처리
-  console.log('111')
   try {
     await client.connect()
     console.log('Success')
@@ -22,11 +21,8 @@ handler.get(async (req, res) => {
     console.error('Failed to connect to MongoDB server')
     throw error
   }
-  console.log('222')
   const collection = client.db('test-database').collection('test-collection')
-  console.log('333')
   const doc = await collection.findOne()
-  console.log('444', doc)
 
   res.status(200).json({ test: 'Meetup Inserted!', doc: doc })
 })
