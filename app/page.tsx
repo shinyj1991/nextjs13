@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 type HelloData = {
   test: string
-  doc: any
 }
 
 async function getData(): Promise<HelloData> {
@@ -18,8 +17,6 @@ export default async function Page() {
     <div>
       <div>
         Test : {data.test}
-        <br />
-        {/* Name : {data.doc.name} */}
         <br />
         <Link href="/about">about</Link>
       </div>
