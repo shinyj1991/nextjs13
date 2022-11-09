@@ -20,7 +20,7 @@ handler.get(async (req, res) => {
   const collection = client.db(MONGODB_DB).collection('todo')
   const data = await collection.findOne()
 
-  res.status(200).json({
+  res.json({
     text: 'text',
     data: data,
   })
