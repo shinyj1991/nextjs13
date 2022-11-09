@@ -12,6 +12,8 @@ async function getData(): Promise<TodoItem> {
 export default async function Page() {
   const data = await getData()
 
+  console.log(data)
+
   return (
     <div>
       <h1>To do list</h1>
