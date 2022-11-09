@@ -15,7 +15,7 @@ async function getData(): Promise<TodoItem> {
   return res.json()
 }
 
-export default async function Page() {
+export default async function Todo() {
   const data = await getData()
 
   return (
