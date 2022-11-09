@@ -14,6 +14,13 @@ handler.get(async (req, res) => {
   // GET 요청 처리
   try {
     await client.connect()
+    const collection = client.db(MONGODB_DB).collection('todo')
+    const data = await collection.findOne()
+
+    res.json({
+      text: 'text',
+      data: data,
+    })
   } catch (error) {
     res.json({
       text: 'text',
@@ -22,13 +29,6 @@ handler.get(async (req, res) => {
       },
     })
   }
-  const collection = client.db(MONGODB_DB).collection('todo')
-  const data = await collection.findOne()
-
-  res.json({
-    text: 'text',
-    data: data,
-  })
 })
 
 handler.post((req, res) => {
