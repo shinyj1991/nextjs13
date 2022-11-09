@@ -15,7 +15,12 @@ handler.get(async (req, res) => {
   try {
     await client.connect()
   } catch (error) {
-    throw new Error('Failed to connect to MongoDB server')
+    res.json({
+      text: 'text',
+      data: {
+        title: 'database connect false',
+      },
+    })
   }
   const collection = client.db(MONGODB_DB).collection('todo')
   const data = await collection.findOne()
