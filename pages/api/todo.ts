@@ -21,6 +21,7 @@ handler.get(async (req, res) => {
   const data = await collection.findOne()
 
   res.status(200).json({
+    text: 'text',
     data: data,
   })
 })

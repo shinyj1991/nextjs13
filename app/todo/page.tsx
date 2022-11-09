@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 type TodoItem = {
+  text: string
   data: any
 }
 
@@ -12,11 +13,10 @@ async function getData(): Promise<TodoItem> {
 export default async function Page() {
   const data = await getData()
 
-  console.log(data)
-
   return (
     <div>
       <h1>To do list</h1>
+      <p>text: {data.text}</p>
       <p>title: {data.data.title}</p>
       <Link href="/">home</Link>
     </div>
