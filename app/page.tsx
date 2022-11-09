@@ -12,9 +12,12 @@ async function getData(): Promise<HelloData> {
 }
 
 export default async function Page() {
+  const data = await getData()
+
   return (
     <div>
       <div>
+        {data.doc.name}
         <br />
         <Link href="/todo">todo</Link>
       </div>

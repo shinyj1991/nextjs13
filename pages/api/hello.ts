@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
-// import client from '../../lib/mongodb.js'
 import { MongoClient } from 'mongodb'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
@@ -10,7 +9,6 @@ if (!MONGODB_URI) {
   throw new Error('Please add your Mongo URI to .env.local')
 }
 const client = new MongoClient(MONGODB_URI)
-// const client = new MongoClient(MONGODB_URI)
 
 handler.get(async (req, res) => {
   // GET 요청 처리
