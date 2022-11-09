@@ -5,11 +5,7 @@ type HelloData = {
 }
 
 async function getData(): Promise<HelloData> {
-  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/hello`, {
-    headers: {
-      Accept: 'application/json',
-    },
-  })
+  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/hello`)
   return res.json()
 }
 

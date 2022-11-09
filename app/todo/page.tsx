@@ -6,16 +6,11 @@ type TodoItem = {
 }
 
 async function getData(): Promise<TodoItem> {
-  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/todo`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json; charset=UTF-8',
-    },
-  })
+  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/todo`)
   return res.json()
 }
 
-export default async function Todo() {
+export default async function Page() {
   const data = await getData()
 
   return (
