@@ -17,7 +17,7 @@ handler.get(async (req, res) => {
   } catch (error) {
     throw new Error('Failed to connect to MongoDB server')
   }
-  const collection = client.db(MONGODB_DB).collection('todo')
+  const collection = client.db('simplizm').collection('todo')
   const data = await collection.findOne()
 
   res.status(200).json({
