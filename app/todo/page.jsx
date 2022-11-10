@@ -11,13 +11,17 @@ export default async function Page() {
   return (
     <div>
       <h1>To do list</h1>
-      <ul>
-        {data.map((item) => (
-          <li>
-            {item._id} : {item.title}
-          </li>
-        ))}
-      </ul>
+      {data.length ? (
+        <ul>
+          {data.map((item) => (
+            <li>
+              {item._id} : {item.title}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div>null</div>
+      )}
       <Link href="/">home</Link>
     </div>
   )
