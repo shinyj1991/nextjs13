@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
 type HelloData = {
-  test: string
+  message: string
+  success: boolean
 }
 
 async function getData(): Promise<HelloData> {
@@ -15,7 +16,7 @@ export default async function Page() {
   return (
     <div>
       <div>
-        {data.test}
+        {data.message}
         <br />
         <Link href="/todo">todo</Link>
       </div>

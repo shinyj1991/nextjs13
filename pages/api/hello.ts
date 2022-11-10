@@ -1,16 +1,16 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import nextConnect from 'next-connect'
+import { connectToDatabase } from '../../lib/mongodb'
 
-const handler = nextConnect<NextApiRequest, NextApiResponse>()
-
-handler.get(async (req, res) => {
-  res.status(200).json({
-    test: 'Meetup Inserted!',
+async function getData(req, res) {
+  return res.json({
+    message: 'Hello World',
+    success: true,
   })
-})
+}
 
-handler.post((req, res) => {
-  // POST 요청 처리
-})
-
-export default handler
+export default async function handler(req, res) {
+  switch (req.method) {
+    case 'GET': {
+      return getData(req, res)
+    }
+  }
+}

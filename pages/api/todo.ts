@@ -1,38 +1,34 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import nextConnect from 'next-connect'
-import { MongoClient } from 'mongodb'
+import { connectToDatabase } from '../../lib/mongodb'
 
-const handler = nextConnect<NextApiRequest, NextApiResponse>()
-const { MONGODB_URI, MONGODB_DB } = process.env
-
-if (!MONGODB_URI) {
-  throw new Error('Please add your Mongo URI to .env.local')
-}
-const client = new MongoClient(MONGODB_URI)
-
-handler.get(async (req, res) => {
-  // GET 요청 처리
+async function getTodos(req, res) {
   try {
-    await client.connect()
-    const collection = client.db(MONGODB_DB).collection('todo')
-    const data = await collection.findOne()
-
-    res.json({
-      text: 'text',
-      data: data,
+    let { db } = await connectToDatabase()
+    let todos = await db.collection('todo').find({}).sort({ title: -1 }).toArray()
+    return res.json({
+      message: JSON.parse(JSON.stringify(todos)),
+      success: true,
     })
-  } catch (error) {
-    res.json({
-      text: 'text',
-      data: {
-        title: 'database connect false',
-      },
+  } catch (error: any) {
+    return res.json({
+      message: new Error(error).message,
+      success: false,
     })
   }
-})
+}
 
-handler.post((req, res) => {
-  // POST 요청 처리
-})
-
-export default handler
+export default async function handler(req, res) {
+  switch (req.method) {
+    case 'GET': {
+      return getTodos(req, res)
+    }
+    // case 'POST': {
+    //   return addPost(req, res)
+    // }
+    // case 'PUT': {
+    //   return updatePost(req, res)
+    // }
+    // case 'DELETE': {
+    //   return deletePost(req, res)
+    // }
+  }
+}
