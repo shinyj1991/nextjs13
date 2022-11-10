@@ -10,6 +10,7 @@ async function getTodos(req, res) {
     })
   } catch (error: any) {
     return res.json({
+      data: [],
       message: new Error(error).message,
       success: false,
     })
