@@ -2,18 +2,21 @@ import { connectToDatabase } from '../../lib/mongodb'
 
 async function getTodos(req, res) {
   try {
-    let { db } = await connectToDatabase()
-    let todos = await db.collection('todo').find({}).sort({ title: -1 }).toArray()
-    return res.json({
-      data: JSON.stringify(todos),
+    const { db } = await connectToDatabase()
+    const todos = await db.collection('todo').find({}).sort({ title: -1 }).toArray()
+    const result = {
+      data: JSON.parse(JSON.stringify(todos)),
       success: true,
-    })
+    }
+
+    return res.json(result)
   } catch (error: any) {
-    return res.json({
-      data: 'false',
+    const result = {
+      data: [],
       message: new Error(error).message,
       success: false,
-    })
+    }
+    return res.json(result)
   }
 }
 

@@ -12,8 +12,7 @@ export default async function Page() {
     <div>
       <h1>To do list</h1>
       <p>{success ? 'success' : 'error'}</p>
-      <p>{data}</p>
-      {/* {data.length ? (
+      {data.length ? (
         <ul>
           {data.map((item) => (
             <li>
@@ -23,7 +22,7 @@ export default async function Page() {
         </ul>
       ) : (
         <div>null</div>
-      )} */}
+      )}
       <Link href="/">home</Link>
     </div>
   )
