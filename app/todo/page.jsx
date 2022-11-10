@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 async function getData() {
   const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/todo`)
-  return res.json()
+  return res
 }
 
 export default async function Page() {
