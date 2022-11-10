@@ -5,12 +5,12 @@ async function getTodos(req, res) {
     let { db } = await connectToDatabase()
     let todos = await db.collection('todo').find({}).sort({ title: -1 }).toArray()
     return res.json({
-      data: JSON.parse(JSON.stringify(todos)),
+      data: JSON.stringify(todos),
       success: true,
     })
   } catch (error: any) {
     return res.json({
-      data: [],
+      data: 'false',
       message: new Error(error).message,
       success: false,
     })

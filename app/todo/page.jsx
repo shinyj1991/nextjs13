@@ -6,12 +6,13 @@ async function getData() {
 }
 
 export default async function Page() {
-  const { success } = await getData()
+  const { success, data } = await getData()
 
   return (
     <div>
       <h1>To do list</h1>
       <p>{success ? 'success' : 'error'}</p>
+      <p>{data}</p>
       {/* {data.length ? (
         <ul>
           {data.map((item) => (
