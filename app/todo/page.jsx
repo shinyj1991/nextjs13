@@ -6,12 +6,13 @@ async function getData() {
 }
 
 export default async function Page() {
-  const { data } = await getData()
+  const { success } = await getData()
 
   return (
     <div>
       <h1>To do list</h1>
-      {data.length ? (
+      <p>{success ? 'success' : 'error'}</p>
+      {/* {data.length ? (
         <ul>
           {data.map((item) => (
             <li>
@@ -21,7 +22,7 @@ export default async function Page() {
         </ul>
       ) : (
         <div>null</div>
-      )}
+      )} */}
       <Link href="/">home</Link>
     </div>
   )
