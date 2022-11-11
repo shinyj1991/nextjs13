@@ -1,16 +1,16 @@
-import { connectToDatabase } from '../../lib/mongodb'
+import { server } from '../../lib/server'
 
-async function getData(req, res) {
-  return res.json({
-    message: 'Hello World',
-    success: true,
-  })
-}
-
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   switch (req.method) {
     case 'GET': {
-      return getData(req, res)
+      return server.get(req, res, async () => {
+        return {
+          data: {
+            message: 'Hello World',
+          },
+          success: true,
+        }
+      })
     }
   }
 }
