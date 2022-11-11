@@ -11,8 +11,8 @@ export default async function Page() {
   return (
     <div>
       <h1>To do list</h1>
-      <p>{success ? 'success' : message}</p>
-      {data.length ? (
+      <p>success: {success ? 'success' : message}</p>
+      {data ? (
         <ul>
           {data.map((item) => (
             <li>
