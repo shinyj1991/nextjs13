@@ -5,7 +5,7 @@ async function getData() {
   return res.json()
 }
 
-export default async () => {
+export default async function Page() {
   const { success, data, message } = await getData()
 
   return (
