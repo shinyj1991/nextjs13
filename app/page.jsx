@@ -1,20 +1,17 @@
 import Link from 'next/link'
+import LayoutHeader from '../components/Layout/Header'
+import LayoutFooter from '../components/Layout/Footer'
 
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/hello`)
-  return res.json()
-}
-
-export default async function Page() {
-  const { data } = await getData()
-
+export default async () => {
   return (
-    <div>
-      <div>
-        {data.message}
-        <br />
-        <Link href="/todo">todo</Link>
-      </div>
+    <div className="page-index">
+      <LayoutHeader />
+
+      <main className="container">
+        <Link href="/todo">Todo</Link>
+      </main>
+
+      <LayoutFooter />
     </div>
   )
 }

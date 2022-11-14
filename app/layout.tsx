@@ -1,4 +1,4 @@
-import '../styles/globals.scss'
+import '../styles/reset.scss'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,10 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <div>
-          <p>root layout</p>
-          {children}
-        </div>
+        <div className="layout-index">{children}</div>
       </body>
     </html>
   )
