@@ -1,23 +1,24 @@
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { client } from '../../lib/client'
 
 export default async () => {
-  const data = await client.get(`/api/todo`)
+  const res = await client.get(`/api/todo`)
 
   return (
     <div>
       <h1>To do list</h1>
-      <p>success: {data.success ? 'success' : data.message}</p>
-      {data ? (
+      <p>success: {res.success ? 'true' : 'false'}</p>
+      {res.success ? (
         <ul>
-          {data.data.map((item: any) => (
+          {res.data.map((item: any) => (
             <li>
               {item._id} : {item.title}
             </li>
           ))}
         </ul>
       ) : (
-        <div>null</div>
+        <div>{JSON.stringify(res)}</div>
       )}
       <Link href="/">home</Link>
     </div>
