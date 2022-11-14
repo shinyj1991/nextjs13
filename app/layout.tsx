@@ -1,3 +1,5 @@
+import LayoutHeader from '../components/Layout/Header'
+
 import '../styles/globals.scss'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -9,9 +11,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <div>
-          <p>root layout</p>
-          {children}
+        <div className="index-layout">
+          <LayoutHeader />
+
+          <main className="index-container">{children}</main>
         </div>
       </body>
     </html>
