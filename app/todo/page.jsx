@@ -14,7 +14,7 @@ export default async () => {
       <p>success: {success ? 'success' : message}</p>
       {data ? (
         <ul>
-          {data.map((item: any) => (
+          {data.map((item) => (
             <li>
               {item._id} : {item.title}
             </li>
