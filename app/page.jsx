@@ -6,12 +6,12 @@ async function getData() {
 }
 
 export default async function Page() {
-  const { data } = await getData()
+  const { message } = await getData()
 
   return (
     <div>
       <div>
-        {data.message}
+        {message}
         <br />
         <Link href="/todo">todo</Link>
       </div>

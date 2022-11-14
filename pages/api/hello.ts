@@ -5,9 +5,7 @@ export default async function handler(req: any, res: any) {
     case 'GET': {
       return server.get(req, res, async () => {
         return {
-          data: {
-            message: 'Hello World',
-          },
+          message: 'Hello World',
           success: true,
         }
       })
