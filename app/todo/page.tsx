@@ -5,7 +5,7 @@ async function getData() {
   return res.json()
 }
 
-export default async function Page() {
+export default async () => {
   const { success, data, message } = await getData()
 
   return (
@@ -14,7 +14,7 @@ export default async function Page() {
       <p>success: {success ? 'success' : message}</p>
       {data ? (
         <ul>
-          {data.map((item) => (
+          {data.map((item: any) => (
             <li>
               {item._id} : {item.title}
             </li>
