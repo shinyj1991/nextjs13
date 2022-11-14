@@ -1,6 +1,6 @@
 import LayoutHeader from '../components/Layout/Header'
 
-import '../styles/globals.scss'
+import '../styles/reset.scss'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
