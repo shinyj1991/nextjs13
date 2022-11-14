@@ -14,9 +14,9 @@ export default async function Page() {
     <div className="page-index">
       <LayoutHeader />
 
-      <div className="container">
+      <main className="container">
         <Link href="/todo">Todo</Link>
-      </div>
+      </main>
 
       <LayoutFooter />
     </div>
