@@ -14,7 +14,7 @@ export default async function Page() {
       <p>success: {success ? 'success' : message}</p>
       {data ? (
         <ul>
-          {data.map((item) => (
+          {data.map((item: any) => (
             <li>
               {item._id} : {item.title}
             </li>
