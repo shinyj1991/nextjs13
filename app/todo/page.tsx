@@ -1,20 +1,16 @@
 import Link from 'next/link'
-
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_API_ENTRY}/api/todo`)
-  return res.json()
-}
+import { client } from '../../lib/client'
 
 export default async () => {
-  const { success, data, message } = await getData()
+  const data = await client.get(`/api/todo`)
 
   return (
     <div>
       <h1>To do list</h1>
-      <p>success: {success ? 'success' : message}</p>
+      <p>success: {data.success ? 'success' : data.message}</p>
       {data ? (
         <ul>
-          {data.map((item: any) => (
+          {data.data.map((item: any) => (
             <li>
               {item._id} : {item.title}
             </li>
