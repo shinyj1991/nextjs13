@@ -1,0 +1,39 @@
+.todo-page {
+  max-width: 768px;
+  padding: 50px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .todo-list {
+    ul {
+      display: grid;
+      row-gap: 10px;
+
+      li {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+
+        .btn-delete {
+          border: 1px solid #ccc;
+          padding: 3px;
+        }
+      }
+    }
+  }
+  .register {
+    margin-top: 30px;
+    display: flex;
+    column-gap: 10px;
+
+    .btn-regist {
+      width: 120px;
+      background: #333;
+      color: #fff;
+      padding: 4px;
+    }
+  }
+}

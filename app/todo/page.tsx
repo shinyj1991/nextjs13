@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { client } from '../../lib/client'
+import './page.scss'
+import TodoRegister from '../../components/Todo/Register'
 
 export default async () => {
   const res = await client.get(`/api/todo`, {
@@ -8,21 +9,28 @@ export default async () => {
   })
 
   return (
-    <div>
-      <h1>To do list</h1>
-      <p>success: {res.success ? 'true' : 'false'}</p>
-      {res.success ? (
-        <ul>
-          {res.data.map((item: any) => (
-            <li key={item._id}>
-              {item._id} : {item.title}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <div>{JSON.stringify(res)}</div>
-      )}
-      <Link href="/">home</Link>
+    <div className="todo-page">
+      <div className="head">
+        <Link href="/">&lt; go home</Link>
+        <h1>To do list</h1>
+      </div>
+      <div className="todo-list">
+        {res.success ? (
+          <ul>
+            {res.data.map((item: any) => (
+              <li key={item._id}>
+                <div>{item.title}</div>
+                <button type="button" className="btn-delete">
+                  삭제
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="empty">{JSON.stringify(res)}</div>
+        )}
+      </div>
+      <TodoRegister />
     </div>
   )
 }

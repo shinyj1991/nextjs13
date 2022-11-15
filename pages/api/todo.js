@@ -4,7 +4,7 @@ export default async (req, res) => {
   switch (req.method) {
     case 'GET': {
       return server(res, async (database) => {
-        const todos = await database.collection('todo').find({}).sort({ title: -1 }).toArray()
+        const todos = await database.collection('todo').find({}).sort({ title: 1 }).toArray()
 
         return {
           data: todos,
@@ -13,10 +13,10 @@ export default async (req, res) => {
     }
     case 'POST': {
       return server(res, async (database) => {
-        const todos = await database.collection('todo').find({}).sort({ title: -1 }).toArray()
+        const todo = await database.collection('todo').insertOne(req.body)
 
         return {
-          data: todos,
+          data: todo,
         }
       })
     }
