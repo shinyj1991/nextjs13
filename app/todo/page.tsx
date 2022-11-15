@@ -20,7 +20,7 @@ export default async () => {
         {res.success ? (
           <ul>
             {res.data.map((item: any, index: any) => (
-              <TodoItem key={index} item={item} />
+              <TodoItem key={item._id} item={item} />
             ))}
           </ul>
         ) : (
