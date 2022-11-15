@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { client } from '../../lib/client'
 import './page.scss'
+
 import TodoRegister from '../../components/Todo/Register'
+import TodoItem from '../../components/Todo/Item'
 
 export default async () => {
   const res = await client.get(`/api/todo`, {
@@ -17,13 +19,8 @@ export default async () => {
       <div className="todo-list">
         {res.success ? (
           <ul>
-            {res.data.map((item: any) => (
-              <li key={item._id}>
-                <div>{item.title}</div>
-                <button type="button" className="btn-delete">
-                  삭제
-                </button>
-              </li>
+            {res.data.map((item: any, index: any) => (
+              <TodoItem key={index} item={item} />
             ))}
           </ul>
         ) : (

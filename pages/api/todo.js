@@ -1,22 +1,34 @@
+import { ObjectId } from 'mongodb'
 import { server } from '../../lib/server'
 
 export default async (req, res) => {
   switch (req.method) {
     case 'GET': {
       return server(res, async (database) => {
-        const todos = await database.collection('todo').find({}).sort({ title: 1 }).toArray()
+        const data = await database.collection('todo').find({}).sort({ title: 1 }).toArray()
 
         return {
-          data: todos,
+          data: data,
         }
       })
     }
     case 'POST': {
       return server(res, async (database) => {
-        const todo = await database.collection('todo').insertOne(req.body)
+        const data = await database.collection('todo').insertOne(req.body)
 
         return {
-          data: todo,
+          data: data,
+        }
+      })
+    }
+    case 'DELETE': {
+      return server(res, async (database) => {
+        const data = await database.collection('todo').deleteOne({
+          _id: new ObjectId(req.body._id),
+        })
+
+        return {
+          data: data,
         }
       })
     }
