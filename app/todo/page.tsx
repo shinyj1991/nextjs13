@@ -6,7 +6,9 @@ import TodoRegister from '../../components/Todo/Register'
 import TodoItem from '../../components/Todo/Item'
 
 export default async () => {
-  const res = await client.get(`/api/todo`)
+  const res = await client.get(`/api/todo`, {
+    page: 1,
+  })
 
   return (
     <div className="todo-page">
