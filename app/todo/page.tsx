@@ -6,9 +6,7 @@ import TodoRegister from '../../components/Todo/Register'
 import TodoItem from '../../components/Todo/Item'
 
 const getTodoList = async () => {
-  const result = await client.get(`/api/todo`, {
-    page: 1,
-  })
+  const result = await client.get(`/api/todo`)
 
   return result
 }
