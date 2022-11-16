@@ -23,7 +23,7 @@ export default async () => {
         <h1>To do list</h1>
       </div>
       <div className="todo-list">
-        {!res.clientError ? (
+        {res.success ? (
           <ul>
             {res.data.map((todo: any, index: any) => (
               <TodoItem key={todo._id} todo={todo} />
