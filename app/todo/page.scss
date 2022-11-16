@@ -17,6 +17,13 @@
         column-gap: 10px;
         align-items: center;
 
+        input {
+          width: 200px;
+        }
+        .btn-update {
+          border: 1px solid #ccc;
+          padding: 3px;
+        }
         .btn-delete {
           border: 1px solid #ccc;
           padding: 3px;

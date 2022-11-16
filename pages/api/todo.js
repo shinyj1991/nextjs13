@@ -17,6 +17,22 @@ export default async (req, res) => {
         return data
       })
     }
+    case 'PUT': {
+      return server(res, async (database) => {
+        const data = await database.collection('todo').updateOne(
+          {
+            _id: new ObjectId(req.body._id),
+          },
+          {
+            $set: {
+              title: req.body.title,
+            },
+          }
+        )
+
+        return data
+      })
+    }
     case 'DELETE': {
       return server(res, async (database) => {
         const data = await database.collection('todo').deleteOne({
