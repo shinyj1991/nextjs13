@@ -6,13 +6,11 @@ export default ({ todo }) => {
   const deleteTodo = async (_id) => {
     if (!confirm('삭제?')) return
 
-    const { success } = await client.delete(`/api/todo`, {
+    const { clientError } = await client.delete(`/api/todo`, {
       _id: _id,
     })
 
-    console.log(success)
-
-    if (success) {
+    if (!clientError) {
       alert('삭제 완료')
       location.reload()
     }

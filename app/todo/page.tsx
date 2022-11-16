@@ -23,16 +23,14 @@ export default async () => {
         <h1>To do list</h1>
       </div>
       <div className="todo-list">
-        {res.success ? (
+        {!res.clientError ? (
           <ul>
             {res.data.map((todo: any, index: any) => (
               <TodoItem key={todo._id} todo={todo} />
             ))}
           </ul>
         ) : (
-          <div className="empty">
-            Error : {res.status} - {res.statusText}
-          </div>
+          <div className="empty">Error : {JSON.stringify(res)}</div>
         )}
       </div>
       <TodoRegister />

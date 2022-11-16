@@ -16,11 +16,11 @@ export default () => {
       return
     }
 
-    const { success } = await client.post(`/api/todo`, {
+    const { clientError } = await client.post(`/api/todo`, {
       title: title,
     })
 
-    if (success) {
+    if (!clientError) {
       alert('등록 완료')
       setTitle('')
       location.reload()
