@@ -7,14 +7,14 @@ export default async (req, res) => {
       return server(res, async (database) => {
         const data = await database.collection('todo').find({}).sort({ title: 1 }).toArray()
 
-        return { data }
+        return data
       })
     }
     case 'POST': {
       return server(res, async (database) => {
         const data = await database.collection('todo').insertOne(req.body)
 
-        return { data }
+        return data
       })
     }
     case 'DELETE': {
@@ -23,7 +23,7 @@ export default async (req, res) => {
           _id: new ObjectId(req.body._id),
         })
 
-        return { data }
+        return data
       })
     }
   }
