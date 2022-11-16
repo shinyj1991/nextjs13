@@ -5,10 +5,16 @@ import './page.scss'
 import TodoRegister from '../../components/Todo/Register'
 import TodoItem from '../../components/Todo/Item'
 
-export default async () => {
-  const res = await client.get(`/api/todo`, {
+const getTodoList = async () => {
+  const result = await client.get(`/api/todo`, {
     page: 1,
   })
+
+  return result
+}
+
+export default async () => {
+  const res = await getTodoList()
 
   return (
     <div className="todo-page">
@@ -19,12 +25,12 @@ export default async () => {
       <div className="todo-list">
         {res.success ? (
           <ul>
-            {res.data.map((item: any, index: any) => (
-              <TodoItem key={item._id} item={item} />
+            {res.data.map((todo: any, index: any) => (
+              <TodoItem key={todo._id} todo={todo} />
             ))}
           </ul>
         ) : (
-          <div className="empty">{JSON.stringify(res)}</div>
+          <div className="empty">Error</div>
         )}
       </div>
       <TodoRegister />

@@ -1,9 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { client } from '../../lib/client'
 
-export default ({ item }) => {
+export default ({ todo }) => {
   const deleteTodo = async (_id) => {
     if (!confirm('삭제?')) return
 
@@ -21,8 +20,8 @@ export default ({ item }) => {
 
   return (
     <li>
-      <div>{item.title}</div>
-      <button type="button" className="btn-delete" onClick={() => deleteTodo(item._id)}>
+      <div>{todo.title}</div>
+      <button type="button" className="btn-delete" onClick={() => deleteTodo(todo._id)}>
         삭제
       </button>
     </li>
