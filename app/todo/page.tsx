@@ -30,7 +30,9 @@ export default async () => {
             ))}
           </ul>
         ) : (
-          <div className="empty">Error</div>
+          <div className="empty">
+            Error : {res.status} - {res.statusText}
+          </div>
         )}
       </div>
       <TodoRegister />
