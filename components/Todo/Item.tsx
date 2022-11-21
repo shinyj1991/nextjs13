@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { client } from '../../lib/client'
+import { client } from '#/lib/client'
 
 export default ({ todo }) => {
   const [isRename, setIsRename] = useState(false)

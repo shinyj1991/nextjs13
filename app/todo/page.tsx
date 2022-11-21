@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { client } from '../../lib/client'
-import './page.scss'
+import { client } from '#/lib/client'
+import '#/app/todo/page.scss'
 
-import TodoRegister from '../../components/Todo/Register'
-import TodoItem from '../../components/Todo/Item'
+import TodoRegister from '#/components/Todo/Register'
+import TodoItem from '#/components/Todo/Item'
 
 const getTodoList = async () => {
   const result = await client.get(`/api/todo`)
