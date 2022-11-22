@@ -1,4 +1,5 @@
 import LayoutHeader from '#/components/Layout/Header'
+import LayoutFooter from '#/components/Layout/Footer'
 
 import '#/styles/reset.scss'
 import '#/styles/style.scss'
@@ -15,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="index-layout">
           <LayoutHeader />
 
-          <main className="index-container">{children}</main>
+          <main className="layout-container">{children}</main>
+
+          <LayoutFooter />
         </div>
       </body>
     </html>
