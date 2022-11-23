@@ -1,34 +1,67 @@
-.index-layout {
+.root-layout {
   position: relative;
   padding: 72px 0;
   min-height: 100vh;
+  background: #000;
 }
 
 .layout-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   height: 72px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  // background: rgba(255, 255, 255, 0.9);
+  // box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+
+  .ci {
+    a {
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
 }
 
 .layout-footer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  background: #f7f7f7;
-  height: 72px;
+  padding: 24px;
+  font-size: 12px;
+  color: #ccc;
 }
 
 .layout-container {
-  padding: 48px 48px 96px;
+  padding: 0;
+}
+
+.index-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: calc(100vh - 72px);
+
+  .greeting {
+    color: #fff;
+  }
+  .monstera-1 {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    width: 600px;
+    height: auto;
+  }
 }

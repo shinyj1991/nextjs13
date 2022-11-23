@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <div className="index-layout">
+        <div className="root-layout">
           <LayoutHeader />
 
           <main className="layout-container">{children}</main>
